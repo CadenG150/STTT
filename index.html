@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Stackmat Time Typing Trainer</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Stackmat Time Typing Trainer</h1>
+        <h2 id="givenTime"></h2>
+        <div class="center">
+            <input type="text" id="time" name="time"/>
+        </div>
+    </body>
+    <style>
+        h1 {
+            font-size: 5em;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        h2 {
+            font-size: 4em;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        input[type=text] {
+            width: 50%;
+            font-size: 40px;
+            padding: 35px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: #3CBC8D;
+            color: white;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        x = 0
+        function generate() {
+            var givenTime = document.getElementById("givenTime");
+            givenTime.innerHTML = Math.floor((Math.random() * 9) + 1) + "." + Math.floor((Math.random() * 9) + 1) + Math.floor((Math.random() * 9) + 1);
+        }
+        let input = document.querySelector('input');
+        input.addEventListener('keyup', (e) => {
+            if (e.keyCode === 13) {
+                if (e.target.value == givenTime.innerHTML) {
+                    document.getElementById('time').value = '';
+                    document.getElementById('time').backgroundColor = '#3CBC8D';
+                    generate()
+                }
+            }
+        })
+        generate();
+    </script>
+</html>
